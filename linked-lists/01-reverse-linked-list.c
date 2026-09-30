@@ -1,16 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct ListNode {
+struct ListNode
+{
     int val;
     struct ListNode *next;
 };
 
-struct ListNode* reverseList(struct ListNode* head) {
+struct ListNode *reverseList(struct ListNode *head)
+{
     struct ListNode *prev = NULL;
     struct ListNode *current = head;
 
-    while (current != NULL) {
+    while (current != NULL)
+    {
         struct ListNode *next = current->next;
 
         current->next = prev;
@@ -22,10 +25,12 @@ struct ListNode* reverseList(struct ListNode* head) {
     return prev;
 }
 
-void printList(struct ListNode *head) {
+void printList(struct ListNode *head)
+{
     struct ListNode *temp = head;
 
-    while (temp != NULL) {
+    while (temp != NULL)
+    {
         printf("%d", temp->val);
 
         if (temp->next != NULL)
@@ -37,7 +42,8 @@ void printList(struct ListNode *head) {
     printf(" -> NULL\n");
 }
 
-int main() {
+int main()
+{
     struct ListNode *n1 = malloc(sizeof(struct ListNode));
     struct ListNode *n2 = malloc(sizeof(struct ListNode));
     struct ListNode *n3 = malloc(sizeof(struct ListNode));
@@ -65,6 +71,18 @@ int main() {
 
     printf("Reversed list:\n");
     printList(head);
+    printf("\nEdge case - Single node:\n");
+
+    struct ListNode *n6 = malloc(sizeof(struct ListNode));
+
+    n6->val = 10;
+    n6->next = NULL;
+
+    struct ListNode *single = reverseList(n6);
+
+    printList(single);
+
+    free(n6);
 
     free(n1);
     free(n2);
