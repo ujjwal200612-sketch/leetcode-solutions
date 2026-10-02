@@ -19,11 +19,14 @@ void reverseString(char *s, int sSize)
 
 int main()
 {
-    char s[] = "hello";
+    char s1[] = "hello";
+    reverseString(s1, 5);
+    printf("Test Case 1: %s\n", s1);
 
-    reverseString(s, 5);
-
-    printf("Reversed string: %s\n", s);
+    // Edge case: single-character string
+    char s2[] = "a";
+    reverseString(s2, 1);
+    printf("Test Case 2: %s\n", s2);
 
     return 0;
 }
